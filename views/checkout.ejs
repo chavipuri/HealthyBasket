@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="http://jscart.googlecode.com/svn/jscart.js"></script> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/checkout.css" rel="stylesheet">
+    
+    <title>Checkout</title>
+    
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    
+<script type="text/javascript">
+
+   simpleCart.email = "puri414@gmail.com";
+   simpleCart.checkoutTo = PayPal;
+// simpleCart.merchantId = "118575326044237";
+// simpleCart.checkoutTo = GoogleCheckout;
+   simpleCart.currency = USD;
+// simpleCart.currency = GBP;
+// simpleCart.currency = EUR;
+   simpleCart.taxRate  = 0.0875;
+   simpleCart.shippingFlatRate = 5.00;
+//   simpleCart.shippingQuantityRate = 1.00;
+	//simpleCart.cartStyle = "table"
+
+/* 
+   CartItem.prototype.shipping = function(){
+        if( this.size ){
+                switch( this.size.toLowerCase() ){
+                        case 'small':
+                                return this.quantity * 10.00;
+                        case 'medium':
+                                return this.quantity * 12.00;
+                        case 'large':
+                                return this.quantity * 15.00;
+                        case 'bull':
+                                return 45.00;
+                        default:
+                                return this.quantity * 5.00;
+                }
+        }
+};
+*/
+
+simpleCart.cartHeaders = ["Name" , "Price" , "Quantity","Total", "Remove_noHeader" ];
+</script>
+
+<script>
+function calledOnSubmit(event) {
+  var inputAmount = document.getElementById('fltAmount');
+  var spanTag = document.getElementById('finalTotal');
+
+  inputAmount.value = spanTag.innerHTML
+
+}
+</script>
+
+<style>
+		.cartHeaders div{
+			color:#333;
+		}
+		.simpleCart_items{
+			float:left;
+			clear:left;
+			width:446px;
+			margin:20px;
+		}
+		.itemContainer{
+			clear:both;
+			width:543px;
+			padding:15px 0;
+			font-size:12px;
+			line-height:25px;
+			height:10px;
+		}
+		.itemImage{
+			float:left;
+			width:80px;
+		}
+		.itemImage img{
+			vertical-align:middle;
+		}
+		.itemName{
+			float:left;
+			width:230px;
+		}
+		.itemPrice{
+			float:left;
+			width:45px;
+			color:#333;
+		}
+		.itemQuantity{
+			float:left;
+			width:105px;
+			vertical-align:middle;
+			text-align:center;
+		}
+		.itemQuantity input{
+			width:20px;
+			border:1px solid #ccc;
+			padding:3px 2px;
+			margin:0 auto;
+			display:block;
+			font-size:11px;
+		}
+		.itemTotal{
+			float:left;
+			color:#333;
+			width:60px;
+		}
+		.totalRow{
+			clear:both;
+			float:left;
+			margin-top:10px;
+		}
+		.totalItems{
+			float:left;
+			width:105px;
+			margin-left:295px;
+			text-align:center;
+		}
+		.totalPrice{
+			float:right;
+			text-align:right;
+		}
+		
+		.order-cart-pricing-info {
+		text-align: right;
+		}
+		
+		p {
+		margin: 0 0 10px;
+		}
+
+	</style>
+
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Healthy Basket</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Welcome <%= username ? username : '' %>!</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#myModal" data-whatever="Delivery Hours">Delivery Hours</a></li>
+          <li><a href="logout">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+</div>
+
+
+<!--doordash-->
+
+
+<div class="content">
+
+  <div class="content-section content-section-dark">
+  <form id="login-form"
+      action="finalpage"
+      class="form-horizontal"
+      method="post" onsubmit="calledOnSubmit(event)"
+    >
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <div id="login-section">
+  
+  <div class="login info-card info-card-padding roundify">
+    <div class="content-section-headings">
+      <h3 class="content-section-header">Order Summary: <%= caterer %></h3>
+    </div>
+		<div class="simpleCart_items" >
+		<div class="cartHeaders">
+												
+												<b><div class="itemName">Name</div></b>
+												<div class="itemPrice">Price</div>
+												<div class="itemQuantity">Quantity</div>
+												<div class="itemTotal">ItemTotal</div>
+												
+											</div>
+											<div class="itemContainer">
+												<div class="itemName"></div>
+												<div class="itemPrice"></div>
+												<div class="itemQuantity"></div>
+												<div class="itemTotal"></div>
+												<div class="itemremove">
+													<a href="javascript:;" onclick="simpleCart.items['c5'].remove();" style="padding-left: 30px;">Remove</a>		
+												</div>	
+											</div>
+											</div>
+<div style="clear:right">
+<p class="order-cart-pricing-info">
+<b>SubTotal: </b><span class="simpleCart_total"></span> <br /></p>
+<p class="order-cart-pricing-info">
+<b>Tax: </b><span class="simpleCart_taxCost"></span><br /></p>
+<p class="order-cart-pricing-info">
+<b>Delivery Fee: </b><span class="simpleCart_shippingCost"></span><br /></p>
+<p class="order-cart-pricing-info">
+<b>Total Price: </b><input type="hidden" name="fltAmount" value="" id="fltAmount"><span class="simpleCart_finalTotal" id="finalTotal"></span><br /></p>
+ </div>
+
+</div>
+</div>
+</div>
+
+        <div class="col-xs-6" style="padding-bottom:30px">
+          <div id="signup-section">
+  <div class="login info-card info-card-padding roundify">
+    <div class="content-section-headings" align = "center">
+      <h3 class="content-section-header">Payment Details</h3>
+    </div>
+
+    
+      <input type='hidden' name='csrfmiddlewaretoken' value='ta8NULR2QFHhK5gvcC5kRQtKDp8Rd9N9' />
+      <input type="hidden" name="next" value="/restaurant/">
+      <div class="form-group">
+        <label class="control-label col-xs-4" for="fname">First Name</label>
+        <div class="col-xs-7">
+          <input type="text" class="form-control"
+            name="fname" placeholder="First Name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-4" for="lname">Last Name</label>
+        <div class="col-xs-7">
+          <input type="text" class="form-control"
+            name="lname" placeholder="Last Name" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-4" for="cardnumber">Card Number</label>
+        <div class="col-xs-7">
+          <input type="text" class="form-control" pattern="[0-9]{13,16}"
+            name="cc" placeholder="****************" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-4" for="csv">CSV</label>
+        <div class="col-xs-7">
+          <input type="password" class="form-control"
+            name="csv" placeholder="CSV" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-4" for="expiry">Expiry</label>
+        <div class="col-xs-7">
+          <input type="text" class="form-control"
+            name="expiry" placeholder="mm/year" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-4" for="address1">Address (Line1)</label>
+        <div class="col-xs-7">
+          <input type="text" class="form-control"
+            name="address1" placeholder="Line1" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-4" for="address2">Address (Line2)</label>
+        <div class="col-xs-7">
+          <input type="text" class="form-control"
+            name="address2" placeholder="Line2" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-4" for="city">City</label>
+        <div class="col-xs-7">
+          <input type="text" class="form-control"
+            name="city" placeholder="City" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-4" for="state">State</label>
+        <div class="col-xs-7">
+          <input type="text" class="form-control"
+            name="state" placeholder="State" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-4" for="zip">Zip</label>
+        <div class="col-xs-7">
+          <input type="text" class="form-control"
+            name="zip" placeholder="Zip" required/>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="col-xs-offset-4 col-xs-7">
+          <button type="submit" class="btn btn-warning">Place Order</button>
+        </div>
+      </div>
+  
+  </div>
+  </div>
+        </div>
+      </div> 
+    </div>
+    </form>
+  </div>
+</div>
+
+
+
+<!--doordash-->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cheese Burrito</h4>
+      </div>
+      <div class="modal-body">
+      		<p> Daily 11am to 9pm </p> <br>
+      	<p> Serving areas: Sanjose, Sunnyvale, Santaclara, Cupertino </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="simpleCart.add('name=Cheese Burrito','size=Default','quantity=1');">Add to Cart</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+	
+<script>
+$('#myModal').on('show.bs.modal', function (event) {
+  	var li = $(event.relatedTarget) // Button that triggered the modal
+  	var recipient = li.data('whatever') // Extract info from data-* attributes
+  	var modal = $(this)
+  	modal.find('.modal-title').text(recipient)
+})
+</script>
+
+<div class="navbar navbar-default navbar-static-bottom" style="margin-bottom:0px;">
+     <div class="container">
+     <p class="text-muted credit text-center">
+     © 2014 Healthy Basket ·
+      <a href="/aboutus">About</a> ·
+      <a href="/contact">Contact</a>
+    </p>
+
+   </div> <!-- container-->
+   </div> <!-- navbar navbar-default navbar-fixed-bottom" --> 
+
+ 
+</body>
+</html>

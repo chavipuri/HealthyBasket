@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Caterers List</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </head>
+
+<body>
+
+<!--Header--> 
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Healthy Basket</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target="#myModal" data-whatever="Delivery Hours">Delivery Hours</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <br><br><br>
+  
+  <!--Caterers List -->
+   <div class = "container" style="margin-bottom: 160px;">
+   <h4>Delivery Address: <small><%= zipcode %></small><a href="/index"> (Change Address)</a></h4>
+ 	<h3 class="text-center" style="padding-top=0px">Pick your caterer</h3>
+ 	 <h4 class="text-center"><em>First delivery free &#xb7; No minimum order size</em></h4><br>
+		<div id = "restaurant-list">
+		<div class="row">
+		  <% 
+		  var i=0;
+		  if(i<tablelist.length) {
+		  for (var i=0;i<tablelist.length;i++) { %>
+			<div class="col-xs-6 col-md-3">	
+				<div class = "restaurant-card info-card" data-toggle="tooltip" data-placement="bottom" style="height: 190px;">
+					<a href="/menu/<%= tablelist[i].NAME %>">
+					<img alt="<%= tablelist[i].NAME %>" class="restaurant-card-cover" src="<%= tablelist[i].IMAGELINK %>" style="height: 115px;">
+						<div class="restaurant-card-content-text">
+							<div id="catererName" class="restaurant-card-name heading-color"><%= tablelist[i].NAME %></div>
+								<div class="card-description"><%= tablelist[i].DESC2 %></div></a>
+						</div>
+				</div>
+			</div>
+		  <% } } 
+		  else
+		  {
+		  	%> 
+		  	<div class = "no-results">
+		  	<h4 class="text-center" style="padding-bottom: 0px;">There are no homebased caterers near your location. Try a different City or Zipcode.</h4>
+		  	<img src='images/oops.jpg' class="text-center" style="padding-left: 250px; padding-bottom: 0px; width: 700px; height: 300px;">
+		  	</div>
+		 <% } %>
+		</div>
+		</div>
+  	</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cheese Burrito</h4>
+      </div>
+      <div class="modal-body">
+      	<p> Daily 11am to 9pm </p>
+      	<p> Serving areas: Sanjose, Sunnyvale, Santaclara, Cupertino </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="simpleCart.add('name=Cheese Burrito','size=Default','quantity=1');">Add to Cart</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+	
+<script>
+$('#myModal').on('show.bs.modal', function (event) {
+  	var li = $(event.relatedTarget) // Button that triggered the modal
+  	var recipient = li.data('whatever') // Extract info from data-* attributes
+  	var modal = $(this)
+  	modal.find('.modal-title').text(recipient)
+})
+</script> 
+
+	<div class="navbar navbar-default navbar-static-bottom" style="margin-bottom: 0px;">
+    		 <div class="container">
+		     <p class="text-muted credit text-center">
+    		 © 2014 Healthy Basket ·
+		      <a href="/aboutus">About</a> ·
+     		 <a href="/contact">Contact</a>
+   			 </p>
+  		 </div> <!-- container-->
+  		 </div> <!-- navbar navbar-default navbar-fixed-bottom" --> 
+
+</body>
+
+</html>

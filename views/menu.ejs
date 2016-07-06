@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= name %> Menu</title>
+
+    <!-- Bootstrap -->
+    <link rel='stylesheet' href='/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/css/bootstrap-theme.css' />
+    <link rel='stylesheet' href='/css/bootstrap.css' />
+    <link rel='stylesheet' href='/css/bootstrap-theme.min.css' />
+    
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="http://jscart.googlecode.com/svn/jscart.js"></script> 
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+   simpleCart.email = "email@address.com";
+   simpleCart.checkoutTo = PayPal;
+// simpleCart.merchantId = "118575326044237";
+// simpleCart.checkoutTo = GoogleCheckout;
+   simpleCart.currency = USD;
+// simpleCart.currency = GBP;
+// simpleCart.currency = EUR;
+   simpleCart.taxRate  = 0.0875;
+   simpleCart.shippingFlatRate = 5.00;
+//   simpleCart.shippingQuantityRate = 1.00;
+
+</script>
+
+    
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Healthy Basket</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#myModal" data-toggle="modal"  data-whatever="Delivery Hours">Delivery Hours</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    
+<div id="order-form-restaurant-menu" class="content">
+
+
+  <div class="content-section content-section-light">
+    <div class="container">
+      <div id="enter-address-container" class="alert alert-info center-text"
+        style="display:none"></div>
+
+      <div class="back-to-home">
+        <a href="/index">« Back to all restaurants</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="masthead">  
+  <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <h2><%= name %>
+            <p class="lead"><%= desc2[0].DESC2 %></p>
+          </h2>
+        </div>
+        <div class="col-md-3"> <br><br>
+            
+              <div class="row">
+              	<div class="col-md-6">
+        	      	<div class="btn-group" role="group" aria-label="...">
+  						<a href="javascript:;" class="simpleCart_empty"><button type="button" class="btn btn-default">Empty Cart</button></a>
+  					</div>
+                </div>
+                <div class="col-md-6">
+        	      	<form id="new-form" action="/checkout" method="post">
+						<input type="hidden" name="caterer" value="<%= name %>" id="caterer">  
+  						<button type="submit" class="btn btn-info viewcart">Order Cart(<span class="simpleCart_quantity"></span>)</button>
+  					</form>
+                </div>
+                
+                <!--
+                <div class="col-sm-4">
+	              	<div class="btn-group" role="group" aria-label="...">
+  						<button type="button" class="btn btn-success">Checkout</button>
+  					</div>
+                </div>-->
+              </div>
+           
+        </div>
+
+      </div> 
+  </div><!--/container-->
+</div><!--/masthead-->
+
+<!--main-->
+<div class="container">
+	<div class="row">
+      <!--left-->
+      <div class="col-md-3" id="leftCol">
+        <!--<ul class="nav nav-stacked" id="sidebar" align="left">
+          <li>--><a href="#sec1"><button type="button" class="btn btn-warning">Menu  </button></a><!--</li>-->
+          <!--<div class="well well-sm"><%= name %> Menu</div>-->
+        <!--</ul>-->
+      </div><!--/left-->
+      
+      <!--right-->
+      <div class="col-md-9" id="sec1" style="margin-bottom: 120px;">
+        
+        <!--<h3 id="sec1">Radha's Kitchen Menu</h3>-->
+        <hr>
+        <div class="row">
+          <% for (var i=0;i<tablelist.length;i++) { %>	
+          <div class="col-md-6">
+             <div class="panel panel-warning simpleCart_shelfItem">
+  			 <div class="panel-heading">
+    			<span class="item_name"><%= tablelist[i].ITEM_NAME %></span>&nbsp;-&nbsp;
+    			<span class="item_price">$<%= tablelist[i].PRICE %></span>
+  			 </div>
+  			<div class="panel-body" align="left">
+  			 	<table>
+  			 	<thead>
+                <tr>
+                    <th><input type="text" class="form-control item_quantity" placeholder="Qty" style="width:50px;" /></th>
+                    <th>&nbsp;&nbsp;</th>
+                    <th><input type="button" class="btn btn-default item_add" value="Add to cart" /></th>
+                </tr>
+            	</thead>
+				</table>
+  				
+  			</div>
+		    </div>
+            
+  		  </div>
+         
+
+          <% } %> 
+        </div>
+        
+        
+
+        </div><!--/right--><br><br><br><br><br><br>
+  	</div><!--/row-->
+</div><!--/container-->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cheese Burrito</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="container">
+			<div class="row">
+        		<div class="col-sm-1 col-sm-offset-2 centered">
+        			<h4><b>Quantity:</b></h4>
+        		</div>
+        		<div class="col-sm-1">
+        			<input class="form-control" type="text" name="quantity" value="1" required style = "width: 40px">
+        		</div>
+    		</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="simpleCart.add('name=Cheese Burrito','size=Default','quantity=1');">Add to Cart</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+<!--Footer--> 
+<div class="navbar navbar-default navbar-static-bottom" style = "margin-bottom: 0px;">
+     <div class="container">
+     <p class="text-muted credit text-center">
+     © 2014 Healthy Basket ·
+      <a href="/aboutus">About</a> ·
+      <a href="/contact">Contact</a>
+    </p>
+
+   </div> <!-- container-->
+   </div> <!-- navbar navbar-default navbar-fixed-bottom" -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cheese Burrito</h4>
+      </div>
+      <div class="modal-body">
+      		<p> Daily 11am to 9pm </p> <br>
+      	<p> Serving areas: Sanjose, Sunnyvale, Santaclara, Cupertino </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="simpleCart.add('name=Cheese Burrito','size=Default','quantity=1');">Add to Cart</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+	
+<script>
+$('#myModal').on('show.bs.modal', function (event) {
+  	var li = $(event.relatedTarget) // Button that triggered the modal
+  	var recipient = li.data('whatever') // Extract info from data-* attributes
+  	var modal = $(this)
+  	modal.find('.modal-title').text(recipient)
+})
+</script> 
+  
+  </body>
+  
+
+</html>

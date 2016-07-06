@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign In</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+
+<!--Header--> 
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Healthy Basket</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="signup">Signup</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#myModal" data-whatever="Delivery Hours">Delivery Hours</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+<br><br><br><br><br><br><br><br>
+    
+<div class="content">
+
+  <div class="content-section content-section-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6" style="padding-left: 250px;">
+          <div id="login-section" style="width: 515px;">
+  
+  <div class="login info-card info-card-padding roundify" style="padding-top: 5px; padding-bottom: 5px;">
+    <div class="content-section-headings" align = "center">
+      <h3 class="content-section-header">Returning User</h3>
+      <h5 class="content-section-subheader">Great to see you again!</h5>
+    </div>
+
+    <form id="login-form"
+      action="signin"
+      class="form-horizontal"
+      method="post"
+    >
+      <input type='hidden' name='csrfmiddlewaretoken' value='ta8NULR2QFHhK5gvcC5kRQtKDp8Rd9N9' />
+      <input type="hidden" name="next" value="/restaurant/">
+      <div class="form-group">
+        <label class="control-label col-xs-4" for="email">Email</label>
+        <div class="col-xs-7">
+          <input type="email" class="form-control"
+            name="email" placeholder="Email" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-4" for="password">Password</label>
+        <div class="col-xs-7">
+          <input type="password" class="form-control"
+            name="password" placeholder="Password" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-offset-4 col-xs-7">
+          <button type="submit" class="btn btn-warning">Sign in</button>
+        </div>
+      </div>
+      <div class="login info-card info-card-padding roundify">
+   	 	<div class="content-section-headings" align = "center">
+      	<a href="signup">Not a returning user? Please Signup</a>
+      	<br>
+       	</div>
+      </div>
+    </form>
+    <div align="center">
+    <a href="/auth/facebook"><img src= "images/fb.png"></a>
+	<a href="/auth/twitter"><img src= "images/twitter.png"></a>
+  	</div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<br><br>
+<div align="center">
+<p style="color:red" ><%= message ? message : ' ' %></p> 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cheese Burrito</h4>
+      </div>
+      <div class="modal-body">
+      	<p> Daily 11am to 9pm </p> <br>
+      	<p> Serving areas: Sanjose, Sunnyvale, Santaclara, Cupertino </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="simpleCart.add('name=Cheese Burrito','size=Default','quantity=1');">Add to Cart</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+	
+<script>
+$('#myModal').on('show.bs.modal', function (event) {
+  	var li = $(event.relatedTarget) // Button that triggered the modal
+  	var recipient = li.data('whatever') // Extract info from data-* attributes
+  	var modal = $(this)
+  	modal.find('.modal-title').text(recipient)
+})
+</script> 
+
+<!--Footer--> 
+<div class="navbar navbar-default navbar-fixed-bottom">
+     <div class="container">
+     <p class="text-muted credit text-center">
+     © 2014 Healthy Basket ·
+      <a href="/aboutus">About</a> ·
+      <a href="/contact">Contact</a>
+    </p>
+
+   </div> <!-- container-->
+   </div> <!-- navbar navbar-default navbar-fixed-bottom" --> 
+
+
+
+</body>
+</html>

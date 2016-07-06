@@ -1,0 +1,1 @@
+{"engines":{"node":">=0.10.3"},"version":"0.0.1","dependencies":{"express":"3.2.6 ","ibm_db":">=0.0.1","querystring":"0.2.0","ejs":"*"},"uuid":"_oF-wJXmOEeSnMuJCEkIO9w","name":"homebasedcatererApp","author":"Santhi","Name":"sanjazz1 | healthybasket","description":"A sample node app accessing SQLDB"}

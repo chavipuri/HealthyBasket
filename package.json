@@ -1,0 +1,23 @@
+{
+  "name":"homebasedcatererApp",
+  "version": "0.0.1",
+  "description": "A sample nodejs app using Elastic Caching Service for Bluemix",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.2.6 ",
+    "ejs": "*",
+    "express-session": "*",
+    "querystring": "0.2.0",
+    "ibm_db" : ">=0.0.1",
+    "passport": "0.2.1",
+	  "passport-twitter": "1.0.2",
+	  "passport-facebook": "*",
+	  "bcrypt" : "*"
+  },
+  "engines": {
+		 "node": ">=0.10.3"
+  },
+  "repository": {}
+}

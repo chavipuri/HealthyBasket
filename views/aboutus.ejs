@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+   
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    
+  </head>
+
+<body>
+
+<!--Header--> 
+<div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Healthy Basket</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target="#myModal" data-whatever="Delivery Hours">Delivery Hours</a></li>
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+     </div>
+</div>
+
+<br>  
+    
+<div id="about-us" class="content">
+  <div class="content-section content-section-alternate">
+    <h2 class="content-section-header text-center">About Us</h2>
+  </div>
+  <br><br>
+  <div class="content-section content-section-alternate">
+    <div class="container">
+      <div class="main-content">
+        <p>
+          Healthy Basket enables delivery of home cooked food in areas where it is much asked for.
+          Our mission is to empower small home business owners to offer delivery in an
+          affordable and convenient way. We are achieving this mission first by
+          enabling food delivery from home based caterers.
+        </p>
+
+        <p>
+          Healthy Basket was founded in November 2014 by a group of SJSU students
+          when they were completing their course CMPE272.
+        </p>
+      </div>
+	  <br><br>
+      <div class="employees-list">
+        
+         <div class="row"> 
+         	<div class="col-md-3"><center>
+          		<div class="team-image">
+            		<img class="roundify"
+              			src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/c44.44.548.548/s148x148/931194_10151554540099154_712759713_n.jpg?oh=b16d54b72e4dbd138c6830821621452a&oe=5514AEED&__gda__=1428116832_63e362ac6eec9ee5234ef00cafdde142" height="120" width="120">
+            		<div class="team-name">Santhi Narayanankutty</div>
+          		</div></center>
+          	</div>
+          
+        
+          	<div class="col-md-3"><center>
+          		<div class="team-image">
+        		    <img class="roundify"
+        		      	src="https://lh4.googleusercontent.com/-cs6TY1uS9Zo/AAAAAAAAAAI/AAAAAAAAAe8/oKtiAEAyxTE/s80-c-k-no/photo.jpg" height="120" width="120">
+            		<div class="team-name">Chavi Malhotra</div>
+	          	</div></center>
+          	</div>
+          	
+          	<div class="col-md-3"><center>
+          		<div class="team-image">
+        		    <img class="roundify"
+        		      	src="https://lh6.googleusercontent.com/-oBOJll0hBeg/AAAAAAAAAAI/AAAAAAAADzQ/PbIHk9XYx1c/s120-c/photo.jpg">
+            		<div class="team-name">Chitra Belwadi</div>
+	          	</div></center>
+          	</div>
+          	
+          	<div class="col-md-3"><center>
+          		<div class="team-image">
+        		    <img class="roundify"
+        		      	src="https://lh6.googleusercontent.com/-wbw6f-bdvEg/AAAAAAAAAAI/AAAAAAAAFdY/xVE-HrnYOOQ/s120-c/photo.jpg">
+            		<div class="team-name">Saraswathi Natrajan</div>
+	          	</div></center>
+          	</div>
+          
+        </div>
+          
+    
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cheese Burrito</h4>
+      </div>
+      <div class="modal-body">
+      		<p> Daily 11am to 9pm </p> <br>
+      	<p> Serving areas: Sanjose, Sunnyvale, Santaclara, Cupertino </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="simpleCart.add('name=Cheese Burrito','size=Default','quantity=1');">Add to Cart</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+	
+<script>
+$('#myModal').on('show.bs.modal', function (event) {
+  	var li = $(event.relatedTarget) // Button that triggered the modal
+  	var recipient = li.data('whatever') // Extract info from data-* attributes
+  	var modal = $(this)
+  	modal.find('.modal-title').text(recipient)
+})
+</script>
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+     <div class="container">
+     <p class="text-muted credit text-center">
+     © 2014 Healthy Basket ·
+      <a href="/aboutus">About</a> ·
+      <a href="/contact">Contact</a>
+    </p>
+	</div> <!-- container-->
+</div> <!-- navbar navbar-default navbar-fixed-bottom" --> 
+
+
+
+</body>
+</html>

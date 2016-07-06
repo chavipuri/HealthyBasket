@@ -1,0 +1,109 @@
+
+.navbar-fixed-top {
+min-height: 50px;
+}
+
+.col-md-3 {
+width: 25%;
+padding-bottom: 20px;
+}
+
+.column-xs-3{
+float: left;
+position: relative;
+min-height: 1px;
+padding-left: 15px;
+padding-right: 15px;
+}
+
+div {
+display: block;
+}
+
+.restaurant-card {
+opacity: 0.95;
+cursor: pointer;
+margin: 5px;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+color: #515151;
+font-weight: 400;
+font-family: ProximaNova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size: 14px;
+line-height: 1.42857143;
+border-radius: 10px;
+}
+
+.restaurant-card:hover,
+.restaurant-card:focus,
+.restaurant-card.active {
+  border-color: #337ab7;
+  box-shadow: 0 0 15px black;
+}
+
+.info-card {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+background-color: #fffdfd;
+border: 1px solid #d8d8d8;
+}
+
+.restaurant-card-cover {
+border-bottom: 1px solid #eaeaea;
+width: 100%;
+}
+
+img {
+vertical-align: middle;
+border: 0;
+}
+
+.restaurant-card-content-text {
+padding: 9px;
+width: 100%;
+text-align: center;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.restaurant-card-name {
+font-weight: bold;
+font-size: 15px;
+}
+
+.heading-color {
+color: #2a2a2a;
+}
+
+.restaurant-card-description {
+font-size: 13px;
+}
+
+#restaurant-list {
+padding-bottom: 20px;
+}
+
+#restaurant-list .row {
+padding-bottom: 20px;
+}
+
+.row {
+margin-left: -15px;
+margin-right: -15px;
+}
+
+.container {
+max-width: none !important;
+width: 960px;
+}
+
+body {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+     background-size: cover;
+}
+        

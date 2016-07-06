@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Healthy Basket</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/Index.css" rel="stylesheet">
+  
+    
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    
+  </head>
+
+ <!--Header--> 
+	<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Healthy Basket</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+             <li><a href="#" data-toggle="modal" data-target="#myModal" data-whatever="Delivery Hours">Delivery Hours</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+   
+<body background="images/new.jpg" style= "width:100%; height: 100%; background-repeat: no-repeat;">
+  <!-- Search text area -->
+ <div class="post-header">   
+  <div class="homepage_app_root">
+    <div class="strata hero proportional ng-scope proportions-determined" style="padding: 0px; height: 100%; width: 100%;">
+      <div class="background">
+        <div class="bg-image single-guy">
+          <div class="container-12 clearfix hero-blurb">
+            <div class="grid-12 hero-grid" style="padding-bottom: 80px;">
+              <table>
+                <tr>
+                  <td>
+                    <div class="parchment">
+                      <h1>Wholesome Meals<br />In A Snap</h1>
+                      <h3>Order expertly prepared meals that are designed<br />and cooked by the best moms in town</h3>
+                      <div class="zip-form-title" style="padding-bottom: 10px;"">Enter Your ZIP Code or City to View Our Caterers</div>
+                      <form class="multi-region-zip-form" action="/search" method="post">
+                        <input type="text" name="zipcode" style= "text-transform: capitalize;" placeholder="Zipcode or City..." value="" />
+                        <button class="multi-region-zip-form-submit large orange" style="padding-bottom: 20px;">View Caterers</button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    
+    
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cheese Burrito</h4>
+      </div>
+      <div class="modal-body">
+      	<p> Daily 11am to 9pm </p> <br>
+      	<p> Serving areas: Sanjose, Sunnyvale, Santaclara, Cupertino </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="simpleCart.add('name=Cheese Burrito','size=Default','quantity=1');">Add to Cart</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+	
+<script>
+$('#myModal').on('show.bs.modal', function (event) {
+  	var li = $(event.relatedTarget) // Button that triggered the modal
+  	var recipient = li.data('whatever') // Extract info from data-* attributes
+  	var modal = $(this)
+  	modal.find('.modal-title').text(recipient)
+})
+</script>
+
+</body> 
+    
+<!--Footer--> 
+	<div class="navbar navbar-default navbar-fixed-bottom" style="border-top-width: 0px;">
+     <div class="container">
+     <p class="text-muted credit text-center">
+     © 2014 Healthy Basket ·
+      <a href="/aboutus">About</a> ·
+      <a href="/contact">Contact</a>
+    </p>
+   </div> <!-- container-->
+   </div> <!-- navbar navbar-default navbar-fixed-bottom" --> 
+
+
+</html>

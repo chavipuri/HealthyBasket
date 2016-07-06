@@ -1,0 +1,20 @@
+{
+  "Name": "healthy-basket on dev / santhi.narayanankutty@sjsu.edu",
+  "ServiceId": "com.ibm.cloudoe.orion.client.deploy",
+  "Params": {
+    "Target": {
+      "Url": "https://api.ng.bluemix.net",
+      "Org": "santhi.narayanankutty@sjsu.edu",
+      "OrgId": "eee22ece-0f2d-4ea0-9f61-b8370da49fbd",
+      "Space": "dev",
+      "SpaceId": "8efe50d8-61c9-4253-9594-6dfd321f9f61"
+    },
+    "Name": "healthy-basket",
+    "AppId": "0292e67f-0fa7-4fb9-9c15-5010684a9d8b",
+    "Timeout": 60
+  },
+  "Url": "http://healthy-basket.mybluemix.net",
+  "ManageUrl": "https://console.ng.bluemix.net#/resources/appGuid=0292e67f-0fa7-4fb9-9c15-5010684a9d8b&orgGuid=eee22ece-0f2d-4ea0-9f61-b8370da49fbd&spaceGuid=8efe50d8-61c9-4253-9594-6dfd321f9f61",
+  "Path": "",
+  "Type": "Cloud Foundry"
+}

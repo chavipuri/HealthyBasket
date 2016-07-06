@@ -1,0 +1,12 @@
+---
+applications:
+- command: node app.js
+  disk_quota: 1024M
+  domain: mybluemix.net
+  host: healthy-basket
+  instances: 1
+  memory: 512MB
+  name: healthy-basket
+  path: .
+  services:
+  - SQL Database-xl
